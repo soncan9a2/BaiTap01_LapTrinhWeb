@@ -21,7 +21,6 @@ public class HelloServlet extends HttpServlet {
         String holot = "";
         String ten = "";
         
-        // Nhận cookie
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie c : cookies) {
@@ -36,10 +35,8 @@ public class HelloServlet extends HttpServlet {
         }
         
         if(name.equals("")) {
-            // Chuyển sang trang LoginServlet
             response.sendRedirect("Login.html");
         } else {
-            // Hiển thị lên trang bằng đối tượng PrintWriter()
             printWriter.println("Xin chào " + holot + " " + ten + " (" + name + ")");
         }
     }

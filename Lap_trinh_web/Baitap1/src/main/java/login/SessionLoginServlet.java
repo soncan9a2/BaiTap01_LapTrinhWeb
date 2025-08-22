@@ -19,7 +19,6 @@ public class SessionLoginServlet extends HttpServlet {
         
         PrintWriter out = response.getWriter();
         
-        // Lấy dữ liệu từ form
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         

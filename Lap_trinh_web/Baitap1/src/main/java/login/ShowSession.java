@@ -13,24 +13,22 @@ public class ShowSession extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        // Hiển thị session lên web
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         String ten = "";
         
-        HttpSession session = request.getSession(); // Khởi tạo session
-        Object obj = session.getAttribute("ten"); // Truy xuất dữ liệu từ session
+        HttpSession session = request.getSession(); 
+        Object obj = session.getAttribute("ten"); 
         
-        // Kiểm tra đối tượng Object có null không
         if(obj != null) {
-            ten = String.valueOf(obj); // Ép kiểu về String
+            ten = String.valueOf(obj); 
         } else {
-            response.sendRedirect("createsession"); // Nếu null thì chuyển về trang tạo session
+            response.sendRedirect("createsession"); 
             return;
         }
         
-        int tuoi = (Integer)session.getAttribute("tuoi"); // Ép kiểu
+        int tuoi = (Integer)session.getAttribute("tuoi"); 
         
         // Hiển thị session lên web
         out.println("Xin chào bạn: " + ten + " tuổi: " + tuoi);

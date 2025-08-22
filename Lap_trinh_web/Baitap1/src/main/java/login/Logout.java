@@ -17,12 +17,10 @@ public class Logout extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         
-        // Lấy thông tin trước khi hủy Session
         HttpSession session = request.getSession(false);
         String name = null;
         if(session != null) {
             name = (String)session.getAttribute("name");
-            // Hủy Session
             session.invalidate();
         }
         
